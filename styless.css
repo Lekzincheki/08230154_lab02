@@ -1,0 +1,138 @@
+/* ---- Simple e-portfolio styles ---- */
+:root{
+  --bg: #bfe9ff;       /* light blue background */
+  --text: #000000;     /* BLACK text */
+  --muted: #222222;    /* dark gray for paragraphs */
+  --accent: #0047ab;   /* dark blue for links */
+  --panel: black;
+}
+
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+
+body{
+  font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);   /* black text everywhere */
+  line-height:1.5;
+  padding:20px;
+}
+
+/* Layout: left sidebar + right main */
+.layout{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  gap:28px;
+  align-items:flex-start;
+  min-height:calc(100vh - 40px);
+}
+
+/* Sidebar (left) */
+.sidebar{
+  width:210px;
+  flex:0 0 210px;
+  background: var(--panel);
+  border-radius:12px;
+  padding:22px 16px;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.profile-img{
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+  margin:0 auto 12px;
+  border:3px solid #000;
+  box-shadow:0 6px 14px rgba(0,0,0,0.12);
+}
+
+.name{
+  font-size:1.05rem;
+  font-weight:700;
+  margin-bottom:4px;
+  color:var(--text);
+}
+
+.role{
+  font-size:0.88rem;
+  color:var(--muted);
+}
+
+/* Main content (right) */
+.main{
+  flex:1 1 auto;
+  background: black;
+  border-radius:12px;
+  padding:18px 22px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* Navigation */
+.top-nav{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.top-nav a{
+  color:var(--text); /* black links */
+  text-decoration:none;
+  font-weight:600;
+  padding:8px 12px;
+  border-radius:8px;
+  background: rgba(0,0,0,0.05);
+  transition:background .18s, transform .12s;
+}
+.top-nav a:hover{
+  background: rgba(0,0,0,0.15);
+  transform:translateY(-2px);
+}
+
+/* Sections */
+section{margin-bottom:20px}
+section h2{
+  font-size:1.2rem;
+  margin-bottom:8px;
+  border-bottom:2px solid rgba(0,0,0,0.2);
+  display:inline-block;
+  padding-bottom:4px;
+  color:var(--text);
+}
+section p, section li{
+  font-size:0.95rem;
+  color:var(--muted);
+}
+ul{margin-left:18px; margin-top:8px;}
+
+/* Projects */
+.project{
+  background: rgba(0,0,0,0.05);
+  padding:12px;
+  border-radius:10px;
+  margin-top:8px;
+}
+
+/* Links */
+a{color:var(--accent);}
+a:hover{text-decoration:underline;}
+
+/* Footer small text */
+.small{
+  font-size:0.85rem;
+  color:rgba(0,0,0,0.7);
+  margin-top:10px;
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .layout{flex-direction:column; gap:16px}
+  .sidebar{width:100%}
+  .main{padding:14px}
+  .top-nav{justify-content:center}
+  section h2{border-bottom:none}
+}

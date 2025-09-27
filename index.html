@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lekzin Cheki Wangmo — Portfolio</title>
+  <style>
+    /* ---- Simple e-portfolio (single-file) ---- */
+    :root{
+      --bg: #bfe9ff;       /* light blue background */
+      --text: black;     /* black text */
+      --muted: black;
+      --accent: blue;   /* accent for links */
+      --panel: rgba(255,255,255,0.06);
+    }
+
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:20px;
+    }
+
+    /* container: left profile + right content */
+    .layout{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      gap:28px;
+      align-items:flex-start;
+      min-height:calc(100vh - 40px);
+    }
+
+    /* ---------- LEFT SIDEBAR ---------- */
+    .sidebar{
+      width:210px;                /* narrow like e-portfolio */
+      flex:0 0 210px;
+      background: var(--panel);
+      border-radius:12px;
+      padding:22px 16px;
+      text-align:center;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      position:relative;
+      top:0;
+    }
+
+    .profile-img{
+      width:96px;                /* small circular profile */
+      height:96px;
+      border-radius:50%;
+      object-fit:cover;
+      display:block;
+      margin:0 auto 12px;
+      border:3px solid rgba(7, 0, 0, 0.95);
+      box-shadow:0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    .name{
+      font-size:1.02rem;
+      font-weight:700;
+      margin-bottom:4px;
+      color:var(--text);
+    }
+
+    .role{
+      font-size:0.86rem;
+      color:var(--muted);
+      line-height:1.2;
+    }
+
+    /* ---------- RIGHT MAIN ---------- */
+    .main{
+      flex:1 1 auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+      border-radius:12px;
+      padding:18px 22px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    /* top small nav inside right panel */
+    .top-nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+    .top-nav a{
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:8px;
+      background: rgba(255,255,255,0.03);
+      transition:background .18s, transform .12s;
+    }
+    .top-nav a:hover{ background: rgba(255,255,255,0.12); transform:translateY(-2px); }
+
+    section{
+      padding:14px 6px;
+      margin-bottom:18px;
+    }
+    section h2{
+      font-size:1.18rem;
+      margin-bottom:8px;
+      display:inline-block;
+      padding-bottom:6px;
+      border-bottom:2px solid rgba(255,255,255,0.14);
+    }
+    section p, section li{
+      font-size:0.98rem;
+      color:var(--muted);
+      margin-top:8px;
+    }
+    ul { margin-left:18px; margin-top:8px; }
+
+    .project{
+      background: rgba(255,255,255,0.02);
+      padding:12px;
+      border-radius:10px;
+      margin-top:8px;
+    }
+
+    a { color: var(--accent); }
+    a:hover { text-decoration:underline; }
+
+    /* small footer line inside main if needed */
+    .small { font-size:0.88rem; color: rgba(255,255,255,0.75); margin-top:10px; }
+
+    /* responsive: stack layout on narrow screens */
+    @media (max-width: 900px){
+      .layout{ flex-direction:column; gap:16px; min-height: auto; }
+      .sidebar{ width:100%; display:flex; justify-content:center; padding:16px; }
+      .main{ padding:14px; }
+      .top-nav{ justify-content:center; }
+      section h2{ border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <!-- LEFT: small circular profile -->
+    <aside class="sidebar" aria-label="Profile">
+      <!-- Replace 'me.jpg' with your image filename if different -->
+      <img src="me.jpg" alt="Lekzin Cheki Wangmo" class="profile-img" />
+      <div class="name">Lekzin Cheki Wangmo</div>
+      <div class="role">BEd IT Student — Samtse College of Education</div>
+    </aside>
+
+    <!-- RIGHT: main content with anchor nav -->
+    <main class="main">
+      <nav class="top-nav" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          My name is <strong>Lekzin Cheki Wangmo</strong> from Paro Dzongkhag.
+          I am currently pursuing a <strong>Bachelor of Education in Information Technology</strong>
+          at Samtse College of Education. I enjoy problem-solving, teamwork, and exploring creative IT solutions.
+        </p>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <ul>
+          <li>Wanakha Central School — Primary & Lower Secondary</li>
+          <li>Drukgyel Central School — Higher Secondary (completed 2022)</li>
+          <li>Samtse College of Education — BEd in Information Technology (current)</li>
+        </ul>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>Teamwork & Leadership</li>
+          <li>Problem-solving & Critical Thinking</li>
+          <li>Reading & Writing Manga</li>
+          <li>Dancing (Hip-Hop)</li>
+          <li>Sports: Basketball & Football</li>
+          <li>Creativity in Arts</li>
+        </ul>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+          <h3 style="margin:0 0 6px 0; font-size:1rem;">Attendance Management System</h3>
+          <p>
+            A small digital system to manage student attendance with marking, reports, and improved classroom efficiency.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> <a href="mailto:08230154.sce@rub.edu.bt">08230154.sce@rub.edu.bt</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+975XXXXXXXX">+975 XXXXXXXX</a></p>
+        <div class="small">© 2025 Lekzin Cheki Wangmo</div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // smooth scroll for anchor links
+    if ('scrollBehavior' in document.documentElement.style) {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }
+  </script>
+</body>
+</html>
